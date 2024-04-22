@@ -6,19 +6,19 @@ export class Match {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ name: 'nom_domicile', length: 50, nullable: false })
   nom_domicile: string;
 
-  @Column()
+  @Column({ name: 'nom_exterieur', length: 50, nullable: false })
   nom_exterieur: string;
 
-  @Column()
+  @Column({ name: 'score', length: 5, nullable: false })
   score: string;
 
-  @Column()
+  @Column({ name: 'localisation', length: 50, nullable: false })
   localisation: string;
 
-  @Column()
+  @Column({ name: 'date_match', type: 'date', nullable: false })
   date_match: Date;
 
   @ManyToOne(() => Adherent, (adherent) => adherent.matches)
