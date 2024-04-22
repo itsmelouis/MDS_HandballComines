@@ -6,7 +6,7 @@ export class Role {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ name: 'nom', length: 20, nullable: false })
   nom: string;
 
   @OneToMany(() => Adherent, (adherent) => adherent.role)
