@@ -6,7 +6,7 @@ export class Actualite {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ name: 'titre', length: 70, nullable: false })
+  @Column({ name: 'titre', length: 255, nullable: false })
   titre: string;
 
   @Column({ name: 'date_publication', type: 'date', nullable: false })

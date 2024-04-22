@@ -14,13 +14,13 @@ export class Adherent {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ name: 'nom', length: 20, nullable: false })
+  @Column({ name: 'nom', length: 50, nullable: false })
   nom: string;
 
-  @Column({ name: 'prenom', length: 20, nullable: false })
+  @Column({ name: 'prenom', length: 50, nullable: false })
   prenom: string;
 
-  @Column({ name: 'email', length: 50, nullable: false })
+  @Column({ name: 'date_naissance', type: 'date', nullable: false })
   date_inscription: Date;
 
   @ManyToOne(() => Role, (role) => role.adherents)
