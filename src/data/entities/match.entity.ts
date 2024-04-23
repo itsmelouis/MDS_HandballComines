@@ -1,8 +1,8 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { Adherent } from './adherent.entity';
+import { AdherentEntity } from './adherent.entity';
 
 @Entity('match')
-export class Match {
+export class MatchEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -21,6 +21,6 @@ export class Match {
   @Column({ name: 'date_match', type: 'date', nullable: false })
   date_match: Date;
 
-  @ManyToOne(() => Adherent, (adherent) => adherent.matches)
-  adherent: Adherent;
+  @ManyToOne(() => AdherentEntity, (adherent) => adherent.matches)
+  adherent: AdherentEntity;
 }

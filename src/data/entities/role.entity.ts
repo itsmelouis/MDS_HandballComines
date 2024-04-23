@@ -1,14 +1,14 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-import { Adherent } from './adherent.entity';
+import { AdherentEntity } from './adherent.entity';
 
 @Entity('role')
-export class Role {
+export class RoleEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column({ name: 'nom', length: 20, nullable: false })
   nom: string;
 
-  @OneToMany(() => Adherent, (adherent) => adherent.role)
-  adherents: Adherent[];
+  @OneToMany(() => AdherentEntity, (adherent) => adherent.role)
+  adherents: AdherentEntity[];
 }

@@ -5,12 +5,12 @@ import {
   ManyToOne,
   OneToMany,
 } from 'typeorm';
-import { Role } from './role.entity';
-import { Match } from './match.entity';
-import { Actualite } from './actualite.entity';
+import { RoleEntity } from './role.entity';
+import { MatchEntity } from './match.entity';
+import { ActualiteEntity } from './actualite.entity';
 
 @Entity('adherent')
-export class Adherent {
+export class AdherentEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -23,12 +23,12 @@ export class Adherent {
   @Column({ name: 'date_naissance', type: 'date', nullable: false })
   date_inscription: Date;
 
-  @ManyToOne(() => Role, (role) => role.adherents)
-  role: Role;
+  @ManyToOne(() => RoleEntity, (role) => role.adherents)
+  role: RoleEntity;
 
-  @OneToMany(() => Match, (match) => match.adherent)
-  matches: Match[];
+  @OneToMany(() => MatchEntity, (match) => match.adherent)
+  matches: MatchEntity[];
 
-  @OneToMany(() => Actualite, (actualite) => actualite.adherent)
-  actualites: Actualite[];
+  @OneToMany(() => ActualiteEntity, (actualite) => actualite.adherent)
+  actualites: ActualiteEntity[];
 }
