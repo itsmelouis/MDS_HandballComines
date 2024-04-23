@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Adherent } from './entities/adherent.entity';
-import { Actualite } from './entities/actualite.entity';
-import { Match } from './entities/match.entity';
-import { Role } from './entities/role.entity';
+import { AdherentEntity } from './entities/adherent.entity';
+import { ActualiteEntity } from './entities/actualite.entity';
+import { MatchEntity } from './entities/match.entity';
+import { RoleEntity } from './entities/role.entity';
 
 @Module({
   providers: [],
@@ -14,7 +14,7 @@ import { Role } from './entities/role.entity';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
-    TypeOrmModule.forFeature([Adherent, Actualite, Match, Role]),
+    TypeOrmModule.forFeature([AdherentEntity, ActualiteEntity, MatchEntity, RoleEntity]),
   ],
   exports: [],
 })
