@@ -13,7 +13,12 @@ export class AdherentService {
   async findAll(): Promise<AdherentEntity[]> {
     return this.adherentRepository.find();
   }
-  async createAdherent(adherent: Adherent): Promise<AdherentEntity> {
+  async findOne(id: number): Promise<AdherentEntity> {
+    return this.adherentRepository.findOne({
+      where: { id: id },
+    });
+  }
+  async create(adherent: Adherent): Promise<AdherentEntity> {
     const adherentEntity = this.adherentRepository.create({
       nom: adherent.nom,
       prenom: adherent.prenom,
@@ -21,5 +26,15 @@ export class AdherentService {
       role: adherent.role,
     });
     return this.adherentRepository.save(adherentEntity);
+  }
+  async update(id: number, adherent: Adherent): Promise<AdherentEntity> {
+    const adherentEntity = await this.adherentRepository.findOne({
+      where: { id: id },
+    });
+    return this.adherentRepository.save({ ...adherentEntity, ...adherent });
+  }
+
+  async delete(id: number): Promise<void> {
+    await this.adherentRepository.delete(id);
   }
 }
