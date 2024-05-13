@@ -1,8 +1,8 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { Adherent } from './adherent.entity';
+import { AdherentEntity } from './adherent.entity';
 
 @Entity('actualite')
-export class Actualite {
+export class ActualiteEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -15,6 +15,6 @@ export class Actualite {
   @Column({ name: 'contenu', type: 'text', nullable: false })
   contenu: string;
 
-  @ManyToOne(() => Adherent, (adherent) => adherent.actualites)
-  adherent: Adherent;
+  @ManyToOne(() => AdherentEntity, (adherent) => adherent.actualites)
+  adherent: AdherentEntity;
 }
