@@ -9,9 +9,11 @@ export class MatchService {
         @InjectRepository(MatchEntity)
         private matchRepository: Repository<MatchEntity>,
     ) { }
-    async findAll(): Promise<Match[]> {
+
+    async getAllMatchs(): Promise<Match[]> {
         return this.matchRepository.find();
     }
+
     async createMatch(match: Match): Promise<any> {
         const matchEntity = this.matchRepository.create({
             nom_domicile: match.nom_domicile,
@@ -22,5 +24,18 @@ export class MatchService {
 
         });
         return this.matchRepository.save(matchEntity);
+    }
+
+    async getMatchById(id: number): Promise<Match> {
+        return this.matchRepository.findOne({ where: { id: id } });
+    }
+
+    async updateMatch(id: number, match: Match): Promise<Match> {
+        await this.matchRepository.update(id, match);
+        return this.matchRepository.findOne({ where: { id: id } });
+    }
+
+    async deleteMatch(id: number): Promise<void> {
+        await this.matchRepository.delete(id);
     }
 }

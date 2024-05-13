@@ -4,9 +4,10 @@ import { AdherentEntity } from './entities/adherent.entity';
 import { ActualiteEntity } from './entities/actualite.entity';
 import { MatchEntity } from './entities/match.entity';
 import { RoleEntity } from './entities/role.entity';
+import { MatchService } from './services/match.service';
 
 @Module({
-  providers: [],
+  providers: [MatchService],
   imports: [
     TypeOrmModule.forRoot({
       type: 'sqlite',
@@ -16,6 +17,6 @@ import { RoleEntity } from './entities/role.entity';
     }),
     TypeOrmModule.forFeature([AdherentEntity, ActualiteEntity, MatchEntity, RoleEntity]),
   ],
-  exports: [],
+  exports: [MatchService],
 })
 export class DataModule {}
