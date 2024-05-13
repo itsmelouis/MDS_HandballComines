@@ -1,10 +1,4 @@
-import {
-  IsDate,
-  IsEmail,
-  IsNotEmpty,
-  IsString,
-  MaxLength,
-} from 'class-validator';
+import { IsEmail, IsNotEmpty, IsString, MaxLength } from 'class-validator';
 
 export class CreateAdherentDto {
   @IsString()
@@ -24,10 +18,6 @@ export class CreateAdherentDto {
   @IsString()
   @IsNotEmpty()
   password: string;
-
-  @IsDate()
-  @IsNotEmpty()
-  date_inscription: Date;
 
   @IsNotEmpty()
   roleId: number;

@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { MatchEntity } from '../entities/match.entity';
+import { MatchEntity } from '../../entities/match.entity';
 import { Repository } from 'typeorm';
-import { Match } from '../../domain/models/match';
+import { Match } from '../../../domain/models/match';
 @Injectable()
 export class MatchService {
   constructor(

@@ -4,7 +4,7 @@ import { AdherentEntity } from './entities/adherent.entity';
 import { ActualiteEntity } from './entities/actualite.entity';
 import { MatchEntity } from './entities/match.entity';
 import { RoleEntity } from './entities/role.entity';
-import { MatchService } from './services/match.service';
+import { MatchService } from './services/match/match.service';
 
 @Module({
   providers: [MatchService],
