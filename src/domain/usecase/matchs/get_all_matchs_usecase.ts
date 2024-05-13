@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { MatchService } from '../../../data/services/match.service';
+import { MatchService } from '../../../data/services/match/match.service';
 @Injectable()
 export class GetAllMatchUsecase {
   constructor(private matchService: MatchService) {}

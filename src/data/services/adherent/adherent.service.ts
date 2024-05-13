@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Adherent as AdherentEntity } from '../../entities/adherent.entity';
+import { AdherentEntity } from '../../entities/adherent.entity';
 import { Repository } from 'typeorm';
 import { Adherent } from '../../../domain/models/adherent';
 
@@ -13,9 +13,9 @@ export class AdherentService {
   async findAll(): Promise<AdherentEntity[]> {
     return this.adherentRepository.find();
   }
-  async findOne(id: number): Promise<AdherentEntity> {
+  async findOne(email: string): Promise<AdherentEntity> {
     return this.adherentRepository.findOne({
-      where: { id: id },
+      where: { email: email },
     });
   }
   async create(adherent: Adherent): Promise<AdherentEntity> {

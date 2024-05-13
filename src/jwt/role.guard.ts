@@ -30,6 +30,7 @@ enum Role {
   Coach = 'coach',
   Joueur = 'joueur',
   Contributeur = 'contributeur',
+  Admin = 'admin',
 }
 
 export const Roles = (...roles: Role[]) => SetMetadata('roles', roles);
