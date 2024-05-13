@@ -15,7 +15,12 @@ import { MatchService } from './services/match.service';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
-    TypeOrmModule.forFeature([AdherentEntity, ActualiteEntity, MatchEntity, RoleEntity]),
+    TypeOrmModule.forFeature([
+      AdherentEntity,
+      ActualiteEntity,
+      MatchEntity,
+      RoleEntity,
+    ]),
   ],
   exports: [MatchService],
 })
