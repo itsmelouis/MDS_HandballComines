@@ -1,11 +1,19 @@
 import { Module } from '@nestjs/common';
 import { DataModule } from 'src/data/data.module';
-import { CreateMatchUsecase } from './usecase/matchs/create_matchs_usecase';
-import { GetAllMatchUsecase } from './usecase/matchs/get_all_matchs_usecase';
+import { JwtService } from '@nestjs/jwt';
+import { CreateActualiteUsecase } from './usecase/actualite/create_actualite_usecase';
+import { GetActualitesUsecase } from './usecase/actualite/get_actualite_usecase';
 
 @Module({
-  imports: [DataModule],
-  providers: [CreateMatchUsecase, GetAllMatchUsecase],
-  exports: [CreateMatchUsecase, GetAllMatchUsecase],
+  imports:[DataModule],
+  providers: [
+CreateActualiteUsecase,
+GetActualitesUsecase,
+    JwtService
+  ],
+  exports:[
+    CreateActualiteUsecase, 
+    GetActualitesUsecase, 
+  ],
 })
 export class DomainModule {}

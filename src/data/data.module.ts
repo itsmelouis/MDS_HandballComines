@@ -5,9 +5,10 @@ import { ActualiteEntity } from './entities/actualite.entity';
 import { MatchEntity } from './entities/match.entity';
 import { RoleEntity } from './entities/role.entity';
 import { MatchService } from './services/match/match.service';
+import { ActualiteService } from './services/actualite.service';
 
 @Module({
-  providers: [MatchService],
+  providers: [ActualiteService, MatchService],
   imports: [
     TypeOrmModule.forRoot({
       type: 'sqlite',
@@ -22,6 +23,6 @@ import { MatchService } from './services/match/match.service';
       RoleEntity,
     ]),
   ],
-  exports: [MatchService],
+  exports: [ActualiteService, MatchService],
 })
 export class DataModule {}
