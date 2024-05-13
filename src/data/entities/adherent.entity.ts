@@ -4,12 +4,14 @@ import {
   Column,
   ManyToOne,
   OneToMany,
+  Unique,
 } from 'typeorm';
 import { RoleEntity } from './role.entity';
 import { MatchEntity } from './match.entity';
 import { ActualiteEntity } from './actualite.entity';
 
 @Entity('adherent')
+@Unique(['email'])
 export class AdherentEntity {
   @PrimaryGeneratedColumn()
   id: number;
@@ -19,6 +21,12 @@ export class AdherentEntity {
 
   @Column({ name: 'prenom', length: 50, nullable: false })
   prenom: string;
+
+  @Column({ name: 'email', length: 100, nullable: false })
+  email: string;
+
+  @Column({ name: 'password', nullable: false })
+  password: string;
 
   @Column({ name: 'date_naissance', type: 'date', nullable: false })
   date_inscription: Date;
