@@ -10,7 +10,7 @@ export class MatchService {
         private matchRepository: Repository<MatchEntity>,
     ) { }
 
-    async getAllMatchs(): Promise<Match[]> {
+    async getAllMatchs(): Promise<MatchEntity[]> {
         return this.matchRepository.find();
     }
 
@@ -31,7 +31,7 @@ export class MatchService {
     }
 
     async updateMatch(id: number, match: Match): Promise<Match> {
-        await this.matchRepository.update(id, match);
+        await this.matchRepository.update(id, match);   
         return this.matchRepository.findOne({ where: { id: id } });
     }
 
