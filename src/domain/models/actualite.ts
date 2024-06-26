@@ -1,20 +1,17 @@
-import { Adherent } from './adherent';
+import { AdherentEntity } from 'src/data/entities/adherent.entity';
 
 export class Actualite {
-  id: number;
   titre: string;
   date_publication: Date;
   contenu: string;
-  adherent: Adherent;
+  adherent: AdherentEntity;
 
   constructor(
-    id: number,
     titre: string,
     date_publication: Date,
     contenu: string,
-    adherent: Adherent,
+    adherent: AdherentEntity,
   ) {
-    this.id = id;
     this.titre = titre;
     this.date_publication = date_publication;
     this.contenu = contenu;

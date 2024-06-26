@@ -1,4 +1,4 @@
-import { IsDate, IsNotEmpty, IsString, MaxLength } from 'class-validator';
+import { IsNotEmpty, IsString, MaxLength } from 'class-validator';
 
 export class CreateActualiteDto {
   @IsString()
@@ -6,14 +6,7 @@ export class CreateActualiteDto {
   @MaxLength(255)
   titre: string;
 
-  @IsDate()
-  @IsNotEmpty()
-  date_publication: Date;
-
   @IsString()
   @IsNotEmpty()
   contenu: string;
-
-  @IsNotEmpty()
-  adherentId: number;
 }

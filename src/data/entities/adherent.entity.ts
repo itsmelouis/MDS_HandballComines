@@ -2,11 +2,9 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
-  ManyToOne,
   OneToMany,
   Unique,
 } from 'typeorm';
-import { RoleEntity } from './role.entity';
 import { MatchEntity } from './match.entity';
 import { ActualiteEntity } from './actualite.entity';
 
@@ -28,11 +26,11 @@ export class AdherentEntity {
   @Column({ name: 'password', nullable: false })
   password: string;
 
-  @Column({ name: 'date_naissance', type: 'date', nullable: false })
+  @Column({ name: 'date_inscription', type: 'date', nullable: true })
   date_inscription: Date;
 
-  @ManyToOne(() => RoleEntity, (role) => role.adherents)
-  role: RoleEntity;
+  @Column({ name: 'role', nullable: false })
+  role: string;
 
   @OneToMany(() => MatchEntity, (match) => match.adherent)
   matches: MatchEntity[];

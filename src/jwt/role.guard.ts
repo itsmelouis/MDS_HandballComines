@@ -26,11 +26,11 @@ export class RolesGuard implements CanActivate {
   }
 }
 
-enum Role {
-  Coach = 'coach',
-  Joueur = 'joueur',
-  Contributeur = 'contributeur',
-  Admin = 'admin',
-}
+// enum Role {
+//   Coach = 'coach',
+//   Joueur = 'joueur',
+//   Contributeur = 'contributeur',
+//   Admin = 'admin',
+// }
 
-export const Roles = (...roles: Role[]) => SetMetadata('roles', roles);
+export const Roles = (...roles: string[]) => SetMetadata('roles', roles);
